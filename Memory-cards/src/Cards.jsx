@@ -1,12 +1,13 @@
 import React from 'react';
+import './App.css';
 
 const Cards = ({ data }) => {
   return (
-    <div>
+    <div className="container">
       {data.map(card => (
-        <div key={card.id}>
+        <div className="card" key={card.id}>
           <div>{card.name}</div>
-          <img src={card.img} />
+          <img src={card.img} alt={card.name} />
         </div>
       ))}
     </div>
