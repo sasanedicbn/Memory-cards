@@ -1,12 +1,14 @@
-
+import cards from './Data'
 import './App.css'
+import { useState } from 'react'
+import Cards from './Cards'
 
 function App() {
-
+const [data, setData] = useState(cards)
 
   return (
     <>
-       <p>SAsa</p>
+    <Cards data={data}/>
     </>
   )
 }

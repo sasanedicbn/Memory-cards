@@ -12,3 +12,4 @@ const cards = [
   { id: 11, name: "Terry", img: "./assets/terry.png" },
   { id: 12, name: "Vampire", img: "./assets/vampire.png" },
 ];
+export default cards;
