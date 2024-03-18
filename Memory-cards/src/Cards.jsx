@@ -6,8 +6,9 @@ const Cards = ({ data }) => {
     <div className="container">
       {data.map(card => (
         <div className="card" key={card.id}>
-          <div>{card.name}</div>
-          <img src={card.img} alt={card.name} />
+         <div class='name'>{card.name}</div>
+        <img src={card.img} alt={card.name} />
+         
         </div>
       ))}
     </div>
