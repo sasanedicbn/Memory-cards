@@ -13,7 +13,7 @@ function App() {
   const handleCardClick = (card) => {
     if(clickedCard.includes(card)){
         openModal()
-        setClickedCards([])
+        // setClickedCards([])
     }else{
         setClickedCards([...clickedCard, card]);
         shuffleCards();
@@ -28,7 +28,6 @@ function App() {
       setShowModal(false)
   }
   
-
   const shuffleCards = () => {
     const shuffleArray = array => {
       for (let i = array.length - 1; i > 0; i--) {
@@ -48,10 +47,10 @@ function App() {
   return (
     <>
       <h1>Rick and Morty memory game</h1>
-      <h4>Current score: 0</h4>
+      <h4>Current score: {clickedCard.length}</h4>
       <h4>High score: 0</h4>
       <Cards data={data} shuffleCards={shuffleCards} openModal={openModal} handleCardClick={handleCardClick}/>
-      {showModal && <Modal  closeModal={closeModal}/>}
+      {showModal && <Modal  closeModal={closeModal} clickedCard={clickedCard} setClickedCards={setClickedCards}/>}
     </>
   );
 }

@@ -1,8 +1,8 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 
-const Cards = ({ data, handleCardClick }) => {
+const Cards = ({ data, handleCardClick,setClickedCards }) => {
   return (
     <div className="container">
       {data.map((card, index) => (
