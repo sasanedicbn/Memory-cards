@@ -1,16 +1,20 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
 const Cards = ({ data, shuffleCards }) => {
-  const handleCardClick = () => {
-    shuffleCards();
+    const [clickedCard, setClickedCards] = useState([])
+  const handleCardClick = (card) => {
+    if(clickedCard.includes(card)){
+      console.log('vec imamo karticu')
+    }
   };
+  {console.log(clickedCard)}
 
   return (
     <div className="container">
       {data.map((card, index) => (
-        <div className="card" key={index} onClick={handleCardClick}>
+        <div className="card" key={index} onClick={() => handleCardClick(card)}>
           <div className='name'>{card.name}</div>
           <img src={card.img} alt={card.name} />
         </div>

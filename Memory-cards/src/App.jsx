@@ -6,6 +6,7 @@ import cards from './Data';
 
 function App() {
   const [data, setData] = useState(cards);
+  const [clickedCard, setClickedCards] = useState([])
 
   const shuffleCards = () => {
     const shuffleArray = array => {
