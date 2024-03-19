@@ -3,10 +3,18 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import Cards from './Cards';
 import cards from './Data';
+import Modal from './Modal';
 
 function App() {
   const [data, setData] = useState(cards);
-  const [clickedCard, setClickedCards] = useState([])
+  const [showModal, setShowModal] = useState(false)
+  function openModal() {
+      setShowModal(true)
+  }
+  function closeModal(){
+      setShowModal(false)
+  }
+  
 
   const shuffleCards = () => {
     const shuffleArray = array => {
@@ -29,7 +37,8 @@ function App() {
       <h1>Rick and Morty memory game</h1>
       <h4>Current score: 0</h4>
       <h4>High score: 0</h4>
-      <Cards data={data} shuffleCards={shuffleCards} />
+      <Cards data={data} shuffleCards={shuffleCards} openModal={openModal}/>
+      {showModal && <Modal  closeModal={closeModal}/>}
     </>
   );
 }

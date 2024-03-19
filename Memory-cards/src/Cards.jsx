@@ -1,12 +1,13 @@
 
 import React, { useState } from 'react';
 import './App.css';
-
-const Cards = ({ data, shuffleCards }) => {
+import Modal from './Modal';
+const Cards = ({ data, shuffleCards, openModal }) => {
     const [clickedCard, setClickedCards] = useState([])
   const handleCardClick = (card) => {
     if(clickedCard.includes(card)){
-      console.log('vec imamo karticu')
+        openModal()
+        setClickedCards([])
     }else{
         setClickedCards([...clickedCard, card]);
         shuffleCards();
