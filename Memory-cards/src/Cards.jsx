@@ -7,6 +7,9 @@ const Cards = ({ data, shuffleCards }) => {
   const handleCardClick = (card) => {
     if(clickedCard.includes(card)){
       console.log('vec imamo karticu')
+    }else{
+        setClickedCards([...clickedCard, card]);
+        shuffleCards();
     }
   };
   {console.log(clickedCard)}
