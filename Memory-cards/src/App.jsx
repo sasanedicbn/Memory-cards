@@ -8,6 +8,19 @@ import Modal from './Modal';
 function App() {
   const [data, setData] = useState(cards);
   const [showModal, setShowModal] = useState(false)
+  const [clickedCard, setClickedCards] = useState([])
+
+  const handleCardClick = (card) => {
+    if(clickedCard.includes(card)){
+        openModal()
+        setClickedCards([])
+    }else{
+        setClickedCards([...clickedCard, card]);
+        shuffleCards();
+        {console.log(clickedCard.length + 1)}
+    }
+  };
+
   function openModal() {
       setShowModal(true)
   }
@@ -37,7 +50,7 @@ function App() {
       <h1>Rick and Morty memory game</h1>
       <h4>Current score: 0</h4>
       <h4>High score: 0</h4>
-      <Cards data={data} shuffleCards={shuffleCards} openModal={openModal}/>
+      <Cards data={data} shuffleCards={shuffleCards} openModal={openModal} handleCardClick={handleCardClick}/>
       {showModal && <Modal  closeModal={closeModal}/>}
     </>
   );

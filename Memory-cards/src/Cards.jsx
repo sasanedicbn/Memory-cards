@@ -1,20 +1,8 @@
 
 import React, { useState } from 'react';
 import './App.css';
-import Modal from './Modal';
-const Cards = ({ data, shuffleCards, openModal }) => {
-    const [clickedCard, setClickedCards] = useState([])
-  const handleCardClick = (card) => {
-    if(clickedCard.includes(card)){
-        openModal()
-        setClickedCards([])
-    }else{
-        setClickedCards([...clickedCard, card]);
-        shuffleCards();
-    }
-  };
-  {console.log(clickedCard)}
 
+const Cards = ({ data, handleCardClick }) => {
   return (
     <div className="container">
       {data.map((card, index) => (
